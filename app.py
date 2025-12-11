@@ -52,49 +52,46 @@ def create_pdf(penyakit, score, solusi, gejala_user):
 def main():
     st.set_page_config(page_title="Dr. Gadget AI", page_icon="🤖", layout="wide")
     
-    # --- CSS CUSTOM: MONTSERRAT AMAN ---
+    # --- CSS CUSTOM: MONTSERRAT (VERSI STABIL & RAPI) ---
     st.markdown("""
         <style>
         /* Import Font */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
-        /* Terapkan font hanya ke teks umum, BUKAN ke ikon */
-        html, body, [class*="css"], h1, h2, h3, h4, h5, h6, p, li, span, div {
+        /* 1. Judul Halaman (HEADINGS) */
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif !important;
-        }
-        
-        /* Kecualikan ikon Material/Streamlit agar tidak rusak */
-        [data-testid="stExpander"] details summary span {
-            font-family: 'Source Sans Pro', sans-serif !important; /* Kembalikan font ikon ke default */
-        }
-        
-        /* Tapi paksa judul Expander tetap Montserrat */
-        [data-testid="stExpander"] details summary p {
-            font-family: 'Montserrat', sans-serif !important;
-            font-weight: 600;
-            font-size: 1.1em;
+            font-weight: 700 !important;
+            letter-spacing: -0.5px;
         }
 
-        /* Styling Judul Halaman */
-        h1, h2, h3 {
-            font-weight: 700 !important;
+        /* 2. Teks Paragraf & List (BODY TEXT) */
+        /* Kita target elemen spesifik saja, JANGAN target 'div' atau 'span' secara global */
+        p, li, label, .stMarkdown {
+            font-family: 'Montserrat', sans-serif !important;
         }
-        
-        /* Tombol Utama */
-        .stButton>button {
-            width: 100%;
-            border-radius: 12px;
-            height: 3em;
+
+        /* 3. Tombol (BUTTONS) */
+        .stButton > button {
+            font-family: 'Montserrat', sans-serif !important;
             font-weight: 600 !important;
-            border: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+
+        /* 4. Judul Expander (Hanya Text-nya) */
+        /* Ini akan mengubah font judul kategori, tapi TIDAK menyentuh panahnya */
+        div[data-testid="stExpander"] details summary p {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 16px !important;
         }
         
-        /* Efek Hover Tombol */
-        .stButton>button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+        /* 5. Kartu Hasil (Metrics) */
+        div[data-testid="metric-container"] label {
+             font-family: 'Montserrat', sans-serif !important;
+        }
+        div[data-testid="metric-container"] div {
+             font-family: 'Montserrat', sans-serif !important;
         }
         </style>
     """, unsafe_allow_html=True)
