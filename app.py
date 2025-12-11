@@ -74,8 +74,13 @@ def main():
         /* 3. Tombol (BUTTONS) */
         .stButton > button {
             font-family: 'Montserrat', sans-serif !important;
-            font-weight: 600 !important;
+            font-weight: 800 !important; /* SANGAT TEBAL (Extra Bold) */
+            font-size: 16px !important;
+            text-transform: uppercase !important; /* Huruf Kapital Semua */
+            letter-spacing: 1px !important; /* Jarak antar huruf biar lega */
             border-radius: 12px;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
         }
 
         /* 4. Judul Expander (Hanya Text-nya) */
@@ -88,10 +93,10 @@ def main():
         
         /* 5. Kartu Hasil (Metrics) */
         div[data-testid="metric-container"] label {
-             font-family: 'Montserrat', sans-serif !important;
+            font-family: 'Montserrat', sans-serif !important;
         }
         div[data-testid="metric-container"] div {
-             font-family: 'Montserrat', sans-serif !important;
+            font-family: 'Montserrat', sans-serif !important;
         }
         </style>
     """, unsafe_allow_html=True)
