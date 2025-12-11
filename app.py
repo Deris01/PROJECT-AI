@@ -50,7 +50,7 @@ def create_pdf(penyakit, score, solusi, gejala_user):
 
 # --- APLIKASI UTAMA ---
 def main():
-    st.set_page_config(page_title="Dr. Gadget AI", page_icon="🤖", layout="wide")
+    st.set_page_config(page_title="GadgetFix", page_icon="🤖", layout="wide")
     
     # --- CSS CUSTOM: MONTSERRAT (VERSI STABIL & RAPI) ---
     st.markdown("""
@@ -74,10 +74,10 @@ def main():
         /* 3. Tombol (BUTTONS) */
         .stButton > button {
             font-family: 'Montserrat', sans-serif !important;
-            font-weight: 800 !important; /* SANGAT TEBAL (Extra Bold) */
+            font-weight: 600 !important; 
             font-size: 16px !important;
-            text-transform: uppercase !important; /* Huruf Kapital Semua */
-            letter-spacing: 1px !important; /* Jarak antar huruf biar lega */
+            text-transform: uppercase !important; 
+            letter-spacing: 1px !important; 
             border-radius: 12px;
             padding-top: 10px !important;
             padding-bottom: 10px !important;
@@ -104,8 +104,8 @@ def main():
     # --- SIDEBAR ---
     with st.sidebar:
         st.image("https://cdn-icons-png.flaticon.com/512/4712/4712009.png", width=100)
-        st.title("Dr. Gadget v2.0")
-        st.caption("AI Diagnostic System")
+        st.title("GadgetFix")
+        st.caption("Sistem Pendeteksi Gejela Kerusakan Gadget.")
         st.markdown("---")
         st.info("💡 **Tips:** Pilih gejala selengkap mungkin agar diagnosa akurat.")
         
@@ -117,7 +117,7 @@ def main():
     with col1:
         st.write("") 
     with col2:
-        st.title("Diagnosa Kerusakan HP")
+        st.title("Diagnosa Kerusakan Gadget")
         st.write("Silakan centang gejala yang kamu alami di bawah ini.")
 
     st.markdown("---")
