@@ -3,7 +3,6 @@ from knowledge_base import gejala_data, rules_data, solusi_data
 from fpdf import FPDF
 from datetime import datetime
 
-# --- FUNGSI GENERATOR PDF ---
 def create_pdf(penyakit, score, solusi, gejala_user):
     class PDF(FPDF):
         def header(self):
@@ -21,7 +20,6 @@ def create_pdf(penyakit, score, solusi, gejala_user):
     pdf = PDF()
     pdf.add_page()
     
-    # Isi PDF
     pdf.set_font('Arial', 'B', 12)
     pdf.cell(0, 10, 'HASIL ANALISA UTAMA:', 0, 1)
     
@@ -48,11 +46,9 @@ def create_pdf(penyakit, score, solusi, gejala_user):
 
     return pdf.output(dest='S').encode('latin-1')
 
-# --- APLIKASI UTAMA ---
 def main():
     st.set_page_config(page_title="GadgetFix", page_icon="🤖", layout="wide")
     
-    # --- CSS CUSTOM: MONTSERRAT (VERSI STABIL & RAPI) ---
     st.markdown("""
         <style>
         /* Import Font */
@@ -101,7 +97,6 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    # --- SIDEBAR ---
     with st.sidebar:
         st.image("https://cdn-icons-png.flaticon.com/512/4712/4712009.png", width=100)
         st.title("GadgetFix")
@@ -112,7 +107,6 @@ def main():
         if st.button("🔄 Reset Diagnosa"):
             st.rerun()
 
-    # --- MAIN CONTENT ---
     col1, col2 = st.columns([1, 5])
     with col1:
         st.write("") 
@@ -122,7 +116,6 @@ def main():
 
     st.markdown("---")
 
-    # --- INPUT SECTION ---
     selected_gejala = []
 
     def buat_kategori(judul, icon, start, end):
@@ -149,12 +142,10 @@ def main():
 
     st.markdown("---")
 
-    # --- TOMBOL ANALISA ---
     c1, c2, c3 = st.columns([1, 2, 1])
     with c2:
         analisa_btn = st.button("🔍 JALANKAN DIAGNOSA", type="primary")
 
-    # --- PROSES & HASIL ---
     if analisa_btn:
         if not selected_gejala:
             st.toast("⚠️ Pilih minimal satu gejala dulu ya!", icon="⚠️")
